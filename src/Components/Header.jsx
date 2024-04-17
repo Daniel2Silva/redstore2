@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <section className={styles.headerFixo}>
       <div className={`${styles.header} container`}>
-        <Link to="/redstore2">
+        <Link to="/">
           <h1>
             RED<span>STORE</span>
           </h1>
