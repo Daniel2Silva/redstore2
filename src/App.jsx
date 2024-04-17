@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './Components/Header';
 import Main from './Components/Main';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 import Produto from './Components/Produtos/Produto';
 import { UserStorage } from './UserContext';
 import Login from './Components/login/Login';
@@ -11,7 +11,7 @@ import Produtos from './Components/Produtos/Produtos';
 
 function App() {
   return (
-    <BrowserRouter className="App" basename="/redstore2">
+    <HashRouter className="App" basename="/redstore2">
       <UserStorage>
         <Header />
         <Routes>
@@ -21,7 +21,7 @@ function App() {
           <Route path="conta/*" element={<User />}></Route>
         </Routes>
       </UserStorage>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
