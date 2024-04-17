@@ -7,10 +7,11 @@ import Produto from './Components/Produtos/Produto';
 import { UserStorage } from './UserContext';
 import Login from './Components/login/Login';
 import User from './Components/User/User';
+import Produtos from './Components/Produtos/Produtos';
 
 function App() {
   return (
-    <BrowserRouter className="App">
+    <BrowserRouter className="App" basename="/redstore2">
       <UserStorage>
         <Header />
         <Routes>
