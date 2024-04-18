@@ -9,7 +9,7 @@ const Banner = () => {
   return (
     <>
       <section className={styles.bannerContainer}>
-        <div className={`${styles.banner} container`}>
+        <div className={`${styles.banner} container  animeLeft`}>
           <section className={styles.bannerInfo}>
             <h1>
               Aqui Na RED<span>STORE</span> Você Encontra de Tudo!

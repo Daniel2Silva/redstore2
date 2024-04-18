@@ -9,7 +9,7 @@ const Produto = () => {
   React.useEffect(() => {
     async function fethData() {
       const { json } = await request(
-        `https://api.escuelajs.co/api/v1/categories/${id}/products`,
+        `https://api.escuelajs.co/api/v1/products/${id}`,
       );
       console.log(json);
     }
@@ -18,13 +18,11 @@ const Produto = () => {
 
   if (data)
     return (
-      <section style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-        {data.map((item) => (
-          <div key={item.id} style={{ width: '200px' }}>
-            <img src={item.images} alt="" />
-            <h1 style={{ fontSize: '1rem' }}>{item.title}</h1>
-            <span>R${item.price},00</span>
-          </div>
+      <section className="container">
+        <h1>{data.title}</h1>
+        <p>{data.description}</p>
+        {data.images.map((img) => (
+          <img key={id.image} src={img} alt="" />
         ))}
       </section>
     );

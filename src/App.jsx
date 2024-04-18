@@ -11,7 +11,7 @@ import Produtos from './Components/Produtos/Produtos';
 
 function App() {
   return (
-    <HashRouter className="App" basename="/redstore2">
+    <HashRouter className="App">
       <UserStorage>
         <Header />
         <Routes>

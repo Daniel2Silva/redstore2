@@ -40,22 +40,17 @@ span {
   padding: 1rem 1rem;
 }
 
-.produtos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+.animeLeft {
+  animation: left forwards 0.5s;
 }
 
-.containerItens {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-}
-
-.produtoItem {
-  background: #c7c7c7;
-  padding: 2rem;
-  width: 150px;
-  height: 150px;
+@keyframes left {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }

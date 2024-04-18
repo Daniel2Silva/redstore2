@@ -1,0 +1,31 @@
+.produtos {
+  display: flex;
+  flex-flow: nowrap;
+  overflow: hidden;
+  gap: 2rem;
+  scroll-behavior: smooth;
+  padding: 1rem 1rem;
+}
+
+.produtoItem {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  flex: none;
+  width: 280px;
+  height: 400px;
+}
+
+.produtoItem img {
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.priceName {
+  padding: 0.7rem;
+}
+
+@media (max-width: 750px) {
+  .produtos {
+    overflow: auto;
+  }
+}
