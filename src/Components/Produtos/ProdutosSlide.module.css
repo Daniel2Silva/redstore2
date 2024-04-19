@@ -1,3 +1,13 @@
+.containerP {
+  position: relative;
+  padding-top: 4rem;
+}
+
+.containerP h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
 .produtos {
   display: flex;
   flex-flow: nowrap;
@@ -24,8 +34,43 @@
   padding: 0.7rem;
 }
 
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns button {
+  height: 4rem;
+  position: absolute;
+  top: 45%;
+  background-color: red;
+  width: 4rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btns button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.prev {
+  left: -10px;
+}
+
+.next {
+  right: 0px;
+}
+
 @media (max-width: 750px) {
   .produtos {
     overflow: auto;
+  }
+  .produtoItem {
+    width: 200px;
+    height: 300px;
   }
 }

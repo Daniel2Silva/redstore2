@@ -19,18 +19,18 @@ const Banner = () => {
               elaboradas, projetadas para realçar sua individualidade e atender
               ao seu senso de estilo.
             </p>
-            <button>Ver loja</button>
+            <button>Ver Produtos</button>
           </section>
           <img src={ImgBanner} alt="" />
         </div>
       </section>
-      <section className={styles.containerMarcas}>
+      {/*  <section className={styles.containerMarcas}>
         <div className={styles.marcas}>
           <img src={ImgAcer} alt="" className={styles.marca} />
           <img src={ImgNike} alt="" className={styles.marca} />
           <img src={ImgApple} alt="" className={styles.marca} />
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

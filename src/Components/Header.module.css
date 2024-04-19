@@ -11,8 +11,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 1.8rem;
-  padding-bottom: 1.8rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .header h1 {
@@ -20,7 +20,7 @@
 }
 
 .header span {
-  color: red;
+  color: #fa1c0b;
 }
 
 .header ul {
@@ -34,8 +34,19 @@
 }
 
 .header li a:hover {
-  color: red;
+  color: #fa1c0b;
   transition: 0.5s;
+}
+
+.loginCart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user {
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 750px) {

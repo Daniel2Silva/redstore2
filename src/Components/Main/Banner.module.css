@@ -26,7 +26,7 @@
 .banner h1 span {
   font-family: 'Poppins';
   font-weight: 800;
-  color: red;
+  color: #fa1c0b;
 }
 
 .banner p {
@@ -38,7 +38,7 @@
 }
 
 .banner button {
-  background: black;
+  background: red;
   color: white;
   font-size: 1.3rem;
   border-radius: 20px;
@@ -52,7 +52,6 @@
 }
 
 .banner button:hover {
-  color: #e21;
   transition: 0.5s;
 }
 

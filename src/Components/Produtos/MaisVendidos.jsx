@@ -45,10 +45,10 @@ const MaisVendidos = () => {
           ))}
         </section>
         <div className={styles.btns}>
-          <button onClick={prev} alt="Scroll Left">
+          <button onClick={prev} alt="Scroll Left" className={styles.prev}>
             p
           </button>
-          <button onClick={next} alt="Scroll Rigth">
+          <button onClick={next} alt="Scroll Rigth" className={styles.next}>
             n
           </button>
         </div>

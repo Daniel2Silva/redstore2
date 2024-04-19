@@ -1,0 +1,58 @@
+.produto {
+  padding-top: 4rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.produto img {
+  border-radius: 12px;
+}
+
+.infoProduto {
+  max-width: 500px;
+  height: 450px;
+  display: grid;
+}
+
+.infoProduto h1 {
+  font-size: 2rem;
+}
+
+.infoProduto p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.Left {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.imgLeft {
+  width: 140px;
+  cursor: pointer;
+}
+
+.imgRigth {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.imgBig {
+  width: 450px;
+  transition: transform 0.2s ease;
+}
+
+.imgBig:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 750px) {
+  .produto {
+    display: flex;
+    flex-direction: column;
+  }
+}

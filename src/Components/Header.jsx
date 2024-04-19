@@ -11,20 +11,13 @@ const Header = () => {
             RED<span>STORE</span>
           </h1>
         </Link>
-        <ul>
-          <li>
-            <Link to="#promocao">Em Promoção</Link>
-          </li>
-          <li>
-            <Link to="#vendidos">+Vendidos</Link>
-          </li>
-          <li>
-            <Link to="#categorias">Categorias</Link>
-          </li>
-        </ul>
-        <div>
-          <span>Cart</span>
-          <Link to="/login">Login</Link>
+
+        <div className={styles.loginCart}>
+          <span className="material-symbols-outlined">shopping_cart</span>
+          <div className={styles.user}>
+            <Link to="/login">Entrar</Link>
+            <span className="material-symbols-outlined">person</span>
+          </div>
         </div>
       </div>
     </section>
