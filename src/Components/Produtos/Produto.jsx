@@ -2,7 +2,9 @@ import React from 'react';
 import useFetch from '../../Hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import styles from './Produto.module.css';
-import { func } from 'prop-types';
+import Button from '../Helps/Button';
+import Loading from '../Helps/Loading';
+import ButtonAdd from '../AddCartBtn/ButtonAdd';
 
 const Produto = () => {
   const { data, loading, request, error } = useFetch();
@@ -12,7 +14,7 @@ const Produto = () => {
   React.useEffect(() => {
     async function fethData() {
       const { json } = await request(
-        `https://api.escuelajs.co/api/v1/products/${id}`,
+        `https://api.mercadolibre.com/items/${id}`,
       );
       console.log(json);
     }
@@ -24,17 +26,18 @@ const Produto = () => {
       setImgAtual(index);
     }
   }
+  if (loading) return <Loading />;
   if (data)
     return (
       <section className={`${styles.containerProduto}  container`}>
         <section className={styles.produto}>
           <div className={styles.Left}>
-            {data.images.map((img, index) => (
+            {data.pictures.slice(0, 3).map((img, index) => (
               <img
                 className={styles.imgLeft}
                 onClick={() => handleImage(index)}
-                key={id.image}
-                src={img}
+                key={img.id}
+                src={img.url}
                 alt=""
               />
             ))}
@@ -43,15 +46,13 @@ const Produto = () => {
             <img
               className={styles.imgBig}
               style={{ background: 'red' }}
-              src={data.images[imgAtual]}
+              src={data.pictures[imgAtual].url}
               alt=""
             />
           </div>
           <div className={styles.infoProduto}>
-            <h1>{data.title}</h1>
-            <p>{data.description}</p>
-            <span>{data.price}</span>
-            <button>Adicionar ao Carrinho</button>
+            <h1 className="title">{data.title}</h1>
+            <ButtonAdd item={data} />
           </div>
         </section>
       </section>

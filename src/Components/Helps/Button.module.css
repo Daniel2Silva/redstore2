@@ -1,0 +1,11 @@
+.button {
+  border-radius: 60px;
+  font-size: 1rem;
+  border: none;
+  font-family: 'Roboto';
+  font-weight: bold;
+  background-color: #eb1d1d;
+  color: white;
+  cursor: pointer;
+  height: 3.5rem;
+}

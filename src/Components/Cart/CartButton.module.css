@@ -1,0 +1,19 @@
+.cartButton {
+  background: white;
+  color: red;
+  position: relative;
+  border: none;
+  cursor: pointer;
+}
+
+.cartItemN {
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  border-radius: 60%;
+  font-size: 1.2rem;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+}

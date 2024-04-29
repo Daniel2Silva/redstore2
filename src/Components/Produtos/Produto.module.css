@@ -1,9 +1,9 @@
 .produto {
   padding-top: 4rem;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .produto img {
@@ -13,7 +13,9 @@
 .infoProduto {
   max-width: 500px;
   height: 450px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .infoProduto h1 {
@@ -23,6 +25,19 @@
 .infoProduto p {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.infoProduto span {
+  font-size: 2rem;
+}
+
+.infoProduto button {
+  padding: 1rem 0;
+  border-radius: 20px;
+  border: none;
+  font: 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .Left {

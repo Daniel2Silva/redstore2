@@ -1,0 +1,39 @@
+.cartItem {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.cartImage {
+  width: 70px;
+}
+
+.cartItemContent {
+  padding: 0 35px 0 10px;
+}
+
+.cartItemContent h3 {
+  font-size: 1rem;
+}
+
+.infoPrice {
+  padding: 0.3rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonRemove {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: black;
+  background: red;
+  cursor: pointer;
+}

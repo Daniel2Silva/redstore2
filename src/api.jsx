@@ -13,25 +13,50 @@ export function TOKEN_POST(body) {
   };
 }
 
-export function USER_POST(body) {
+export function TOKEN_REFRESH_POST(refresh_token) {
   return {
-    url: API_URL + 'users/',
+    url: 'https://api.escuelajs.co/api/v1/auth/refresh-token',
     options: {
       method: 'POST',
       headers: {
-        'Content-Type': 'Application/json',
+        refreshToken: refresh_token,
+      },
+    },
+  };
+}
+
+export function USER_POST(body) {
+  return {
+    url: 'https://api.escuelajs.co/api/v1/users/',
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
     },
   };
 }
 
-export function PRODUCT_GET(offset, limit) {
+export function USER_GET(access_token) {
   return {
-    url: API_URL + `products?offset=${offset}&limit=${limit}`,
+    url: 'https://api.escuelajs.co/api/v1/auth/profile',
     options: {
       method: 'GET',
-      cache: 'no-store',
+      headers: {
+        Authorization: 'Bearer ' + access_token,
+      },
+    },
+  };
+}
+
+export function PRODUCT_GET() {
+  return {
+    url: 'https://api.mercadolibre.com/sites/MLB/search?q=${iphone}',
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer APP_USR-12345678-031820-X-12345678`,
+      'Content-Type': 'application/json',
     },
   };
 }

@@ -35,6 +35,23 @@ span {
   font-family: 'Roboto';
 }
 
+.title {
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 0;
+  background: red;
+  position: absolute;
+  left: -5px;
+  border: 0.2rem;
+  z-index: -1;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

@@ -3,7 +3,7 @@
   padding-top: 4rem;
 }
 
-.containerP h1 {
+.containerP h2 {
   text-align: center;
   font-size: 3rem;
 }
@@ -14,7 +14,8 @@
   overflow: hidden;
   gap: 2rem;
   scroll-behavior: smooth;
-  padding: 1rem 1rem;
+  padding: 1rem 0.5rem;
+  position: relative;
 }
 
 .produtoItem {
@@ -25,13 +26,36 @@
   height: 400px;
 }
 
+.produtoItem h3 {
+  font-size: 0.9rem;
+  height: 2rem;
+}
+
 .produtoItem img {
   border-radius: 12px;
   object-fit: cover;
+  width: 250px;
 }
 
 .priceName {
-  padding: 0.7rem;
+  padding: 0.9rem 0.7rem;
+  color: black;
+  font-weight: bold;
+}
+
+.btnCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.7rem;
+}
+
+.btnCard button {
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
 }
 
 .btns {
@@ -40,11 +64,12 @@
 }
 
 .btns button {
-  height: 4rem;
+  height: 3rem;
+  width: 3rem;
   position: absolute;
-  top: 45%;
+  top: 50%;
+  font-size: 1rem;
   background-color: red;
-  width: 4rem;
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -67,10 +92,12 @@
 
 @media (max-width: 750px) {
   .produtos {
-    overflow: auto;
+    overflow-x: scroll;
   }
   .produtoItem {
-    width: 200px;
-    height: 300px;
+    width: 280px;
+  }
+  .btns {
+    display: none;
   }
 }
