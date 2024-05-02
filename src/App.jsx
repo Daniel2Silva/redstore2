@@ -10,7 +10,9 @@ import User from './Components/User/User';
 import Produtos from './Components/Produtos/Produtos';
 import Cart from './Components/Cart/Cart';
 import ProtectRoute from './Components/Helps/ProtectRoute';
-
+import Checkout from './Components/Cart/Checkout';
+import ProdutosSearch from './Components/Produtos/ProdutosSearch';
+import Footer from './Components/Footer';
 function App() {
   return (
     <HashRouter className="App">
@@ -18,6 +20,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />}></Route>
+          <Route path="search/:searchTerm" element={<ProdutosSearch />}></Route>
+          <Route path="produtos/*" element={<Produtos />}></Route>
           <Route path="produto/:id" element={<Produto />}></Route>
           <Route path="login/*" element={<Login />}></Route>
           <Route
@@ -28,7 +32,9 @@ function App() {
               </ProtectRoute>
             }
           ></Route>
+          <Route path="checkout/" element={<Checkout />}></Route>
         </Routes>
+        <Footer />
         <Cart />
       </UserStorage>
     </HashRouter>

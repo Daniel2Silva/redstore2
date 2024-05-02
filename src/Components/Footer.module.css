@@ -1,0 +1,9 @@
+.footerC {
+  background-color: #2c2c2c;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #c6c6c6;
+}

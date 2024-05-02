@@ -1,6 +1,6 @@
 .cartButton {
-  background: white;
-  color: red;
+  background-color: #2c2c2c;
+  color: white;
   position: relative;
   border: none;
   cursor: pointer;
@@ -11,7 +11,7 @@
   top: -15px;
   left: 10px;
   border-radius: 60%;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   background-color: black;
   color: white;
   font-weight: bold;

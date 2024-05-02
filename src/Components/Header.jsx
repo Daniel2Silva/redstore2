@@ -4,15 +4,28 @@ import styles from './Header.module.css';
 import CartButton from './Cart/CartButton';
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
+import useMedia from '../Hooks/useMedia';
 
 const Header = () => {
   const { data, userLogin, userLogout } = React.useContext(UserContext);
   const usenavigate = useNavigate();
+  const mobile = useMedia('(max-width: 750px)');
+  const [mobileMenu, setMobileMenu] = React.useState(false);
+
+  const [searchTerm, setSearchTerm] = React.useState('');
 
   const handleLogout = () => {
     userLogout();
     usenavigate('/login');
   };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      usenavigate(`/search/${encodeURIComponent(searchTerm.trim())}`);
+    }
+  };
+
   return (
     <section className={styles.headerFixo}>
       <div className={`${styles.header} container`}>
@@ -21,19 +34,63 @@ const Header = () => {
             RED<span>STORE</span>
           </h1>
         </Link>
+        <form className={styles.searchArea} onSubmit={handleSearchSubmit}>
+          <input
+            className={styles.searchBar}
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Pesquisar produtos"
+          />
+          <button
+            className={`${styles.btnSearch} material-symbols-outlined `}
+            type="submit"
+          ></button>
+        </form>
         <div className={styles.loginCart}>
           <CartButton />
-          <div className={styles.user}>
+          <div
+            className={`${mobile ? styles.userMobile : styles.user} ${
+              mobileMenu && styles.userMobileActive
+            }`}
+          >
             {data ? (
-              <div>
-                <Link to="/conta">{data.name}</Link>
-                <button onClick={handleLogout}>Sair</button>
+              <div className={styles.navMobile}>
+                {mobile ? (
+                  <div>
+                    <h1>{data.name}</h1>
+                    <Link to="/conta">Meu perfil</Link>
+                  </div>
+                ) : (
+                  <div>
+                    <Link to="/conta">{data.name}</Link>
+                    <button onClick={handleLogout}>Sair</button>
+                  </div>
+                )}
               </div>
             ) : (
-              <Link to="/login">Entrar</Link>
+              <Link className={styles.entrar} to="/login">
+                Entrar
+              </Link>
             )}
-            <span className="material-symbols-outlined">person</span>
+            {mobile && (
+              <nav className={styles.navHeaderMobile}>
+                <Link to="/">Inicio</Link>
+                <Link to="/checkout">Carinho</Link>
+                <Link to="/produtos/smartphone">Categorias</Link>
+                {data && <button onClick={handleLogout}>Sair</button>}
+              </nav>
+            )}
           </div>
+          {mobile && (
+            <button
+              className={` material-symbols-outlined ${styles.menu}
+             `}
+              onClick={() => setMobileMenu(!mobileMenu)}
+            >
+              menu
+            </button>
+          )}
         </div>
       </div>
     </section>

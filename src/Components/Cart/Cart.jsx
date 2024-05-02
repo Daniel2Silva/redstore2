@@ -2,9 +2,12 @@ import React, { useContext, useEffect } from 'react';
 import styles from './Cart.module.css';
 import CartItems from './CartItems';
 import { UserContext } from '../../UserContext';
+import { Link } from 'react-router-dom';
+import FormatCurrency from '../Utilitarios/FormatCurrency';
 
 const Cart = () => {
-  const { cart, isCartVisible, setCart } = useContext(UserContext);
+  const { cart, isCartVisible, setCart, setTotalPrice } =
+    useContext(UserContext);
 
   useEffect(() => {
     const savedCart = localStorage.getItem('cart');
@@ -17,6 +20,8 @@ const Cart = () => {
     return total + item.price * item.quantity;
   }, 0);
 
+  setTotalPrice(totalPrice);
+
   return (
     <section
       className={`${styles.cart} ${isCartVisible ? styles.cartActive : ''}`}
@@ -27,7 +32,8 @@ const Cart = () => {
         ))}
       </div>
       <div className={styles.resumo}>
-        <h1>{totalPrice}</h1>
+        <h3>{FormatCurrency(totalPrice, 'BRL')}</h3>
+        {totalPrice ? <Link to="/checkout">Finalizar compra</Link> : ''}
       </div>
     </section>
   );

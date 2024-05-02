@@ -1,0 +1,83 @@
+.checkoutC {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.check {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.checkInfo {
+  height: 400px;
+  overflow: auto;
+  padding: 1rem 0;
+}
+
+.checkPay {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 4rem;
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.checkPay h2 {
+  font-size: 1rem;
+  padding: 1rem 0;
+}
+
+.checkPay input {
+  border-radius: 8px;
+  border: 1px solid #c6c6c6;
+  padding: 0.5rem;
+  width: 300px;
+  display: block;
+  margin-top: 10px;
+}
+
+.cardCheck {
+  font-size: 1rem;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'Roboto';
+}
+
+.btnP {
+  background-color: black;
+  cursor: pointer;
+  color: white;
+  display: block;
+  width: 300px;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.btnCep {
+  width: 100px;
+  padding: 0.5rem;
+  background-color: black;
+  cursor: pointer;
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+@media (max-width: 750px) {
+  .check {
+    grid-template-columns: 2fr;
+  }
+  .checkPay {
+    padding: 1rem;
+    align-items: center;
+  }
+  .checkInfo {
+    height: 300px;
+    overflow: auto;
+    padding: 1rem;
+  }
+}

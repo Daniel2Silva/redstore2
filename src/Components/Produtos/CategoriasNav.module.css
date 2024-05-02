@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav h1 {
+  font-size: 1rem;
+  border: 1px solid #c7c7c7;
+  padding: 1rem;
+  border-radius: 12px;
+}

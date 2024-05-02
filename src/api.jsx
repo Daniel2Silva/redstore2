@@ -50,9 +50,31 @@ export function USER_GET(access_token) {
   };
 }
 
-export function PRODUCT_GET() {
+export function PRODUCT_GET(category) {
   return {
-    url: 'https://api.mercadolibre.com/sites/MLB/search?q=${iphone}',
+    url: `https://api.mercadolibre.com/sites/MLB/search?q=${category}&limit=12`,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer APP_USR-12345678-031820-X-12345678`,
+      'Content-Type': 'application/json',
+    },
+  };
+}
+
+export function PRODUCT_SEARCH(category, offset) {
+  return {
+    url: `https://api.mercadolibre.com/sites/MLB/search?q=${category}&limit=12&offset=${offset}`,
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer APP_USR-12345678-031820-X-12345678`,
+      'Content-Type': 'application/json',
+    },
+  };
+}
+
+export function GET_CATEGORY() {
+  return {
+    url: 'https://api.mercadolibre.com/sites/MLB/search?category=MLB1055&limit=10',
     method: 'GET',
     headers: {
       Authorization: `Bearer APP_USR-12345678-031820-X-12345678`,

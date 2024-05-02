@@ -5,6 +5,7 @@ import styles from './Produto.module.css';
 import Button from '../Helps/Button';
 import Loading from '../Helps/Loading';
 import ButtonAdd from '../AddCartBtn/ButtonAdd';
+import FormatCurrency from '../Utilitarios/FormatCurrency';
 
 const Produto = () => {
   const { data, loading, request, error } = useFetch();
@@ -50,10 +51,22 @@ const Produto = () => {
               alt=""
             />
           </div>
-          <div className={styles.infoProduto}>
-            <h1 className="title">{data.title}</h1>
+          <section className={styles.infoProduto}>
+            <div>
+              <h1 className={styles.tProduto}>{data.title}</h1>
+              <span>{FormatCurrency(data.price, 'BRL')}</span>
+              <h2>Infos sobre o produto</h2>
+              {data.attributes.slice(10, 20).map((info) => (
+                <ul>
+                  <li>
+                    {info.name}: {info.value_name}
+                  </li>
+                </ul>
+              ))}
+            </div>
+
             <ButtonAdd item={data} />
-          </div>
+          </section>
         </section>
       </section>
     );

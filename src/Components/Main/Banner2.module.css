@@ -1,5 +1,6 @@
 .bannerContainer {
-  background-image: radial-gradient(#ffffff, #c7c7c7c7);
+  background: #2c2c2c;
+  margin-top: 4rem;
   padding: 1rem 0;
 }
 
@@ -20,7 +21,7 @@
   font-family: 'Poppins';
   line-height: 4rem;
   font-weight: 800;
-  color: #020202;
+  color: white;
 }
 
 .banner h1 span {

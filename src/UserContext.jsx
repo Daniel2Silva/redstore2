@@ -11,6 +11,7 @@ export const UserStorage = ({ children }) => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [isCartVisible, setIsCartVisible] = React.useState(false);
+  const [totalPrice, setTotalPrice] = React.useState('');
   const navigation = useNavigate();
 
   const userLogout = React.useCallback(async function () {
@@ -100,6 +101,8 @@ export const UserStorage = ({ children }) => {
         setIsCartVisible,
         userLogout,
         login,
+        setTotalPrice,
+        totalPrice,
       }}
     >
       {children}

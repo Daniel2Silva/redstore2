@@ -11,30 +11,48 @@
 .produtos {
   display: flex;
   flex-flow: nowrap;
-  overflow: hidden;
+  overflow: auto;
   gap: 2rem;
   scroll-behavior: smooth;
   padding: 1rem 0.5rem;
   position: relative;
 }
 
+.produtos::-webkit-scrollbar {
+  height: 10px;
+}
+
+.produtos::-webkit-scrollbar-thumb {
+  background-color: red;
+  border-radius: 5px;
+}
+
+.produtos::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
 .produtoItem {
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  flex: none;
-  width: 280px;
-  height: 400px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .produtoItem h3 {
   font-size: 0.9rem;
-  height: 2rem;
+  min-height: 2rem;
+  max-height: 4rem;
+  width: 200px;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: clip;
 }
 
 .produtoItem img {
   border-radius: 12px;
-  object-fit: cover;
-  width: 250px;
+  width: 200px;
 }
 
 .priceName {
@@ -93,9 +111,6 @@
 @media (max-width: 750px) {
   .produtos {
     overflow-x: scroll;
-  }
-  .produtoItem {
-    width: 280px;
   }
   .btns {
     display: none;

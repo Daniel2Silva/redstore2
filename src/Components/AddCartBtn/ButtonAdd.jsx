@@ -14,11 +14,14 @@ const ButtonAdd = ({ item }) => {
           : cartItem,
       );
       setCart(updatedCart);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
     } else {
       setCart((prevCart) => [...prevCart, { ...item, quantity: 1 }]);
+      localStorage.setItem(
+        'cart',
+        JSON.stringify([...cart, { ...item, quantity: 1 }]),
+      );
     }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
   };
 
   return <button onClick={() => handleAddCart(item)}>Adicionar</button>;

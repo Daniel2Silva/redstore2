@@ -1,19 +1,16 @@
 import React from 'react';
-import styles from './Banner.module.css';
-import ImgBanner from '../../assets/msi-not.png';
-import ImgAcer from '../../assets/acer.svg';
-import ImgApple from '../../assets/apple2.svg';
-import ImgNike from '../../assets/nike.svg';
+import styles from './Banner2.module.css';
+import ImgBanner from '../../assets/exclusive.png';
 import { Link } from 'react-router-dom';
 
-const Banner = () => {
+const Banner2 = () => {
   return (
     <>
       <section className={styles.bannerContainer}>
         <div className={`${styles.banner} container  animeLeft`}>
           <section className={styles.bannerInfo}>
             <h1>
-              Aqui Na RED<span>STORE</span> Você Encontra de Tudo!
+              Aqui Na <span>RED</span>STORE Você Encontra de Tudo!
             </h1>
             <p>
               Navegue por nossa diversificada linha de roupas meticulosamente
@@ -31,4 +28,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default Banner2;

@@ -1,41 +1,39 @@
-import React, { useRef } from 'react';
+import React, { useEffect } from 'react';
 import useFetch from '../../Hooks/useFetch';
-import { PRODUCT_GET } from '../../api';
+import { PRODUCT_GET, PRODUCT_SEARCH } from '../../api';
 import { Link } from 'react-router-dom';
-import styles from './ProdutosSlide.module.css';
-import { UserContext } from '../../UserContext';
+import styles from './CategoriasItem.module.css';
 import ButtonAdd from '../AddCartBtn/ButtonAdd';
 import Loading from '../Helps/Loading';
 import FormatCurrency from '../Utilitarios/FormatCurrency';
-const MaisVendidos = ({ tittle, category }) => {
+const CategoriasItem = ({ title, category }) => {
   const { data, loading, request, error } = useFetch();
-  const carrosel = useRef(null);
+  const [offset, setOffset] = React.useState(0);
 
-  const prev = (e) => {
-    e.preventDefault();
-    carrosel.current.scrollLeft -= carrosel.current.offsetWidth;
+  const handleNextPage = () => {
+    setOffset((prevOffset) => prevOffset + 12);
+  };
+  const handlePrevPage = () => {
+    if (offset > 0) {
+      setOffset((prevOffset) => prevOffset - 12);
+    }
   };
 
-  const next = (e) => {
-    e.preventDefault();
-    carrosel.current.scrollLeft += carrosel.current.offsetWidth;
-  };
-
-  React.useEffect(() => {
-    async function fethCategory() {
-      const { url, options } = PRODUCT_GET(category);
+  useEffect(() => {
+    async function fetchCategory() {
+      const { url, options } = PRODUCT_SEARCH(category, offset);
       const { response, json } = await request(url, options);
       console.log(json);
     }
-    fethCategory();
-  }, [request, category]);
+    fetchCategory();
+  }, [request, category, offset]);
 
   if (loading) return <Loading />;
-  if (data)
+  if (data) {
     return (
-      <div className={`${styles.containerP}  container`}>
-        <h2>{tittle}</h2>
-        <section className={styles.produtos} ref={carrosel}>
+      <div className={`${styles.containerP} container`}>
+        <h2>{title}</h2>
+        <section className={styles.produtos}>
           {data.results.map((item) => (
             <div key={item.id} className={styles.produtoItem}>
               <Link to={`/produto/${item.id}`}>
@@ -53,16 +51,17 @@ const MaisVendidos = ({ tittle, category }) => {
             </div>
           ))}
         </section>
-        <div className={styles.btns}>
-          <button onClick={prev} alt="Scroll Left" className={styles.prev}>
-            ⭠
+        <div className={styles.btnNP}>
+          <button onClick={handlePrevPage} disabled={offset === 0}>
+            Pagina Anterior
           </button>
-          <button onClick={next} alt="Scroll Rigth" className={styles.next}>
-            ⭢
-          </button>
+          <button onClick={handleNextPage}>Próxima Página</button>
         </div>
       </div>
     );
+  } else {
+    return <p>Loading...</p>;
+  }
 };
 
-export default MaisVendidos;
+export default CategoriasItem;
