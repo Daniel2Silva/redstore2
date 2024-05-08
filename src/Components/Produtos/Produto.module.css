@@ -1,10 +1,9 @@
 .produto {
-  padding-top: 4rem;
   display: flex;
   gap: 2rem;
-  align-items: center;
+  align-items: end;
   justify-content: center;
-  height: 100vh;
+  margin-bottom: 200px;
 }
 
 .produto img {
@@ -12,8 +11,9 @@
 }
 
 .infoProduto {
-  max-width: 500px;
+  width: 400px;
   height: 450px;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,6 +21,7 @@
 
 .infoProduto h1 {
   font-size: 1rem;
+  padding: 1rem 0;
 }
 
 .infoProduto p {
@@ -29,36 +30,35 @@
 }
 
 .infoProduto span {
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
-.infoProduto button {
-  padding: 1rem 0;
-  border-radius: 20px;
-  border: none;
-  font: 1.5rem;
-  cursor: pointer;
-  font-weight: bold;
+.imgsLeft {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column-reverse;
+  align-items: center;
+  height: 600px;
 }
 
 .Left {
   display: flex;
   gap: 1rem;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .imgLeft {
-  width: 80px;
-  cursor: pointer;
+  width: 100px;
+  height: 150px;
 }
 
 .imgRigth {
-  overflow: hidden;
   border-radius: 12px;
 }
 
 .imgBig {
-  width: 300px;
+  max-width: 400px;
+  height: 300px;
   transition: transform 0.2s ease;
 }
 
@@ -66,9 +66,53 @@
   transform: scale(1.2);
 }
 
+.addCart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.addCart .add {
+  height: 50px;
+  border: none;
+  padding: 0 2rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnIncrement button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnIncrement .decre {
+  border-radius: 20px 0px 0px 20px;
+  border-right: 1px solid #c7c7c7;
+}
+.btnIncrement .encre {
+  border-left: 1px solid #c7c7c7;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.btnIncrement .quantity {
+  padding: 14px;
+  font-size: 1rem;
+  border: none;
+  background-color: #f0f0f0;
+}
+
 @media (max-width: 750px) {
   .produto {
-    display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+  .imgBig {
+    width: 300px;
   }
 }

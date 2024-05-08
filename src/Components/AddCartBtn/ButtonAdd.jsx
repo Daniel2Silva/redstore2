@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../UserContext';
 
-const ButtonAdd = ({ item }) => {
+const ButtonAdd = ({ item, quantity, add }) => {
   const { cart, setCart } = useContext(UserContext);
 
   const handleAddCart = () => {
@@ -10,21 +10,25 @@ const ButtonAdd = ({ item }) => {
     if (existingItem) {
       const updatedCart = cart.map((cartItem) =>
         cartItem.id === item.id
-          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          ? { ...cartItem, quantity: cartItem.quantity + quantity }
           : cartItem,
       );
       setCart(updatedCart);
       localStorage.setItem('cart', JSON.stringify(updatedCart));
     } else {
-      setCart((prevCart) => [...prevCart, { ...item, quantity: 1 }]);
+      setCart((prevCart) => [...prevCart, { ...item, quantity: quantity }]);
       localStorage.setItem(
         'cart',
-        JSON.stringify([...cart, { ...item, quantity: 1 }]),
+        JSON.stringify([...cart, { ...item, quantity: quantity }]),
       );
     }
   };
 
-  return <button onClick={() => handleAddCart(item)}>Adicionar</button>;
+  return (
+    <button className={add} onClick={() => handleAddCart(item)}>
+      Adicionar
+    </button>
+  );
 };
 
 export default ButtonAdd;

@@ -38,7 +38,7 @@ const CategoriasItem = ({ title, category }) => {
             <div key={item.id} className={styles.produtoItem}>
               <Link to={`/produto/${item.id}`}>
                 <div>
-                  <img src={item.thumbnail} alt="" />
+                  <img src={item.thumbnail.replace(/\w\.jpg/gi, 'W.jpg')} />
                   <div className={styles.priceName}>
                     <h3>{item.title}</h3>
                   </div>
@@ -46,7 +46,7 @@ const CategoriasItem = ({ title, category }) => {
               </Link>
               <div className={styles.btnCard}>
                 <span>{FormatCurrency(item.price, 'BRL')}</span>
-                <ButtonAdd item={item} />
+                <ButtonAdd item={item} quantity={1} />
               </div>
             </div>
           ))}

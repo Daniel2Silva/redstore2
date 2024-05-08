@@ -10,7 +10,7 @@ export const UserStorage = ({ children }) => {
   const [login, setLogin] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
-  const [isCartVisible, setIsCartVisible] = React.useState(false);
+
   const [totalPrice, setTotalPrice] = React.useState('');
   const navigation = useNavigate();
 
@@ -97,8 +97,6 @@ export const UserStorage = ({ children }) => {
         data,
         cart,
         setCart,
-        isCartVisible,
-        setIsCartVisible,
         userLogout,
         login,
         setTotalPrice,

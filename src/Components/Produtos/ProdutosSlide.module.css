@@ -35,24 +35,19 @@
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+}
+
+.produtoItem:hover {
+  transform: scale(1.05);
+  background-color: red;
 }
 
 .produtoItem h3 {
   font-size: 0.9rem;
-  min-height: 2rem;
-  max-height: 4rem;
-  width: 200px;
-  overflow: hidden;
-  white-space: normal;
-  text-overflow: clip;
 }
 
 .produtoItem img {
   border-radius: 12px;
-  width: 200px;
 }
 
 .priceName {

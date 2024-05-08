@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
-import CartButton from './Cart/CartButton';
 import { UserContext } from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 import useMedia from '../Hooks/useMedia';
+import Cart from './Cart/Cart';
 
 const Header = () => {
   const { data, userLogin, userLogout } = React.useContext(UserContext);
@@ -48,7 +48,7 @@ const Header = () => {
           ></button>
         </form>
         <div className={styles.loginCart}>
-          <CartButton />
+          <Cart />
           <div
             className={`${mobile ? styles.userMobile : styles.user} ${
               mobileMenu && styles.userMobileActive

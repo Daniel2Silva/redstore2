@@ -1,17 +1,37 @@
+.cartButton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.cartItemN {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  border-radius: 50%;
+  background-color: red;
+  width: 19px;
+  height: 15px;
+  padding: 6px;
+  font-size: 1rem;
+}
+
 .cart {
   width: 100%;
   max-width: 330px;
   background-color: white;
   height: 70vh;
   position: fixed;
-  top: 0;
+  top: 75px;
   right: 0;
-  padding: 100px 20px 50px;
+  padding: 30px 20px 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transform: translate(110%, 0);
-  transition: all 400ms ease;
+  transition: opacity 400ms ease, transform 400ms ease;
   -webkit-box-shadow: -6px 6px 15px -10px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -6px 6px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: -6px 6px 15px -10px rgba(0, 0, 0, 0.75);
@@ -20,6 +40,8 @@
 .cartItems {
   flex-grow: 1;
   overflow: auto;
+  padding: 0.5rem 0;
+  color: #080808;
 }
 
 .resumo {
@@ -27,8 +49,35 @@
   font-weight: 500;
   padding: 20px 0 0;
   border-top: 1px solid #ddd;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.resumo h3 {
+  font-size: 1.2rem;
+  color: #080808;
+}
+
+.resumo button {
+  font-size: 1rem;
+  border: 1px solid #c3c3c3;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-family: 'Poppins';
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .cartActive {
+  opacity: 1;
+  visibility: visible;
   transform: translate(0, 0);
+}
+
+.cartInactive {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(110%, 0);
 }

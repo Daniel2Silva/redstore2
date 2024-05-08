@@ -10,6 +10,7 @@ import FormatCurrency from '../Utilitarios/FormatCurrency';
 const Produto = () => {
   const { data, loading, request, error } = useFetch();
   const [imgAtual, setImgAtual] = React.useState(0);
+  const [quantity, setQuantity] = React.useState(1);
   const { id } = useParams();
 
   React.useEffect(() => {
@@ -27,29 +28,42 @@ const Produto = () => {
       setImgAtual(index);
     }
   }
+
+  const incrementQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrementQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   if (loading) return <Loading />;
   if (data)
     return (
       <section className={`${styles.containerProduto}  container`}>
         <section className={styles.produto}>
-          <div className={styles.Left}>
-            {data.pictures.slice(0, 3).map((img, index) => (
+          <div className={styles.imgsLeft}>
+            <div className={styles.Left}>
+              {data.pictures.slice(0, 3).map((img, index) => (
+                <img
+                  className={styles.imgLeft}
+                  onClick={() => handleImage(index)}
+                  key={img.id}
+                  src={img.url}
+                  alt=""
+                />
+              ))}
+            </div>
+            <div className={styles.imgRigth}>
               <img
-                className={styles.imgLeft}
-                onClick={() => handleImage(index)}
-                key={img.id}
-                src={img.url}
+                className={styles.imgBig}
+                style={{ background: 'red' }}
+                src={data.pictures[imgAtual].url}
                 alt=""
               />
-            ))}
-          </div>
-          <div className={styles.imgRigth}>
-            <img
-              className={styles.imgBig}
-              style={{ background: 'red' }}
-              src={data.pictures[imgAtual].url}
-              alt=""
-            />
+            </div>
           </div>
           <section className={styles.infoProduto}>
             <div>
@@ -64,8 +78,18 @@ const Produto = () => {
                 </ul>
               ))}
             </div>
-
-            <ButtonAdd item={data} />
+            <div className={styles.addCart}>
+              <div className={styles.btnIncrement}>
+                <button className={styles.decre} onClick={decrementQuantity}>
+                  -
+                </button>
+                <span className={styles.quantity}>{quantity}</span>
+                <button className={styles.encre} onClick={incrementQuantity}>
+                  +
+                </button>
+              </div>
+              <ButtonAdd add={styles.add} item={data} quantity={quantity} />
+            </div>
           </section>
         </section>
       </section>

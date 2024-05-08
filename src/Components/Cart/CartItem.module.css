@@ -16,24 +16,24 @@
 }
 
 .cartItemContent h3 {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .infoPrice {
   padding: 0.3rem 0;
   display: flex;
   justify-content: space-between;
+  font-size: 1rem;
 }
 
 .buttonRemove {
   position: absolute;
   top: 0;
   right: 10px;
-  width: 20px;
-  height: 20px;
-  border-radius: 8px;
-  font-size: 1rem;
-  border: black;
-  background: red;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
+  color: red;
+  background-color: transparent;
+  border: none;
 }

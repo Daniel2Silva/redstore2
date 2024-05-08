@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styles from './CartItem.module.css';
 import { UserContext } from '../../UserContext';
 import FormatCurrency from '../Utilitarios/FormatCurrency';
+import { FaTrashAlt } from 'react-icons/fa';
 
 const CartItems = ({ data }) => {
   const { cart, setCart } = useContext(UserContext);
@@ -22,7 +23,7 @@ const CartItems = ({ data }) => {
           <span>Quantidade:{quantity}</span>
         </div>
         <button onClick={handleCartRemove} className={styles.buttonRemove}>
-          x
+          <FaTrashAlt />
         </button>
       </div>
     </section>
